@@ -8,9 +8,9 @@ export default function AddTodoForm({
   return (
     <>
       <form onSubmit={onAddFormSubmit}>
-      
+
         <input
-    id="margin-input"
+          id="margin-input"
           className="input_field"
           name="todo"
           type="text"
