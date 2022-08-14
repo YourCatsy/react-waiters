@@ -8,8 +8,8 @@ export default function AddTodoForm({
   return (
     <>
       <form onSubmit={onAddFormSubmit}>
-
         <input
+          autoComplete="off"
           id="margin-input"
           className="input_field"
           name="todo"
@@ -18,9 +18,9 @@ export default function AddTodoForm({
           value={todo}
           onChange={onAddInputChange}
         />
-
       </form>
       <input
+        autoComplete="off"
         className="input_field"
         onKeyUp={find}
         type="text"

@@ -4,7 +4,7 @@ export default function ToggleVisibility({ children }) {
     const [show, setShow] = useState();
 
     function toggleShow() {
-        setShow(!show); 
+        setShow(!show);
     }
 
     let buttonText = show ? "Hide Waiters" : "Show Waiters";
