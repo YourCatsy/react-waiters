@@ -1,0 +1,303 @@
+body {
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+}
+
+.container {
+  display: flex;
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+form {
+  margin: 0;
+}
+
+.single_item {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 1px 1px 7px 3px #6e6e6e;
+  margin: 20px auto;
+  padding: 20px;
+  border: 5px solid;
+  border-style: outset;
+}
+
+.unit_menu {
+  width: 100%;
+}
+
+.single_item h3 {
+  color: crimson;
+}
+
+.select_filter {
+  text-align: center;
+  width: 150px;
+  margin: 10px auto;
+}
+
+.select_filter select {
+  text-align: center;
+  width: 100%;
+  background: #e3edef;
+  padding: 5px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 3px black;
+}
+
+li {
+  display: inline-flex;
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+.waiter_name {
+  display: inline-block;
+  font-size: 23px;
+  margin: 0;
+  color: #fff;
+  text-shadow: 2px 2px 3px #00000094;
+}
+
+.input_field {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px;
+  border: none;
+  -webkit-appearance: none;
+  background-color: #ffffff99;
+  transition: border .3s ease;
+}
+
+.input_field::placeholder {
+
+  color: rgba(0, 0, 0, 0.784);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.input_field:focus {
+  background-color: #fff;
+}
+
+.input_field:focus::placeholder {
+  color: transparent;
+}
+
+#input {
+  margin-top: 10px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 5px;
+  background: #cacaca;
+  border: none;
+}
+
+.button_menu {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 18px;
+  justify-content: center;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button_menu:hover,
+.button_menu:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button_menu:hover {
+  transform: translateY(-1px);
+}
+
+.button_menu:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+.button_list {
+  margin-left: 10px;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  padding: 4px 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.waiters_button-align {
+  display: flex;
+  justify-content: space-between;
+}
+
+.waiters_button-align_buttons {
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  padding: 4px 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+label {
+  color: #fff;
+}
+
+.button-close_position {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.modal-window {
+  padding: 20px;
+  border: 4px;
+  border-style: inset;
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+}
+
+.modal-position {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  width: 50%;
+  max-width: 100%;
+  overflow: auto;
+  height: 100%;
+}
+
+.modal_list-price {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.total_price_li {
+  display: flex;
+
+}
+
+.todo_list {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+}
+
+.margin {
+  margin: 0;
+}
+
+.button_list-margin {
+  margin-left: 20px;
+}
+
+.modal_input-field {
+  margin: 5px 0;
+  width: 50%;
+  margin-left: 0;
+}
+
+#total_price_ul {
+  margin-bottom: 50px;
+}
+
+.total-price {
+  display: flex;
+  align-items: center;
+}
+
+.total-price_click-text {
+  margin-left: 0;
+  color: #fff;
+}
+
+#total-price_button {
+  margin-right: 0;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 25%;
+}
+
+#total-price_button :hover {
+  box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+#margin-input {
+  margin-top: 10px;
+}
+
+#position {
+  display: inline-flex;
+}
+
+.waiters-container {
+  width: 100%;
+}
