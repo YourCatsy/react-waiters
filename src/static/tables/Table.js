@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({ table }) {
+export default function Table({ table }) {
   return (
     <div className="single_item">
       <h2>{table.title}</h2>
@@ -8,4 +8,3 @@ function Table({ table }) {
     </div>
   );
 }
-export default Table;

@@ -56,7 +56,7 @@ export default function AppModal() {
           <form>
             <label>Enter waiter name:</label> <input className='modal_input-field input_field' />
             <label>Enter table name:</label> <input className='modal_input-field input_field' />
-            <SelectOptions/>
+            <SelectOptions />
           </form>
         </div>
       </Modal>

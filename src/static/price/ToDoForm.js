@@ -4,17 +4,17 @@ export default function ToDoForm({
   todo,
   onAddFormSubmit,
   onAddInputChange
-
 }) {
 
   const handleChange = event => {
     console.log(event.target.value);
   }
+
   return (
     <div>
       <label htmlFor="todo">Create total price: </label>
       <input name="todo"
-      autoComplete="off"
+        autoComplete="off"
         className='modal_input-field input_field'
         type="text"
         id="input_third"

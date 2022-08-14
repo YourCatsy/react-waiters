@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FilterTables({cat, filteringName }) {
+export default function FilterTables({ cat, filteringName }) {
   return (
     <div>
       <div className="select_filter">

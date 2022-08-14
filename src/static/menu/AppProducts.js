@@ -79,23 +79,23 @@ export default class AppProducts extends Component {
   render() {
     const { showHideFName, showHideLName } = this.state;
     return (
-       <div className="wrapper">
-         <h1 > Menu</h1>
-      <button className='button_menu' onClick={() => this.hideComponent("showHideFName")} > Show Menu</button>
-      {showHideFName && showHideLName && (
-      <div className="AppTables">
-        <Filter
-          sorting={this.sorting}
-          sorts={this.state.sort}
-          filteringName={this.filteringName}
-          cat={this.state.cat}
-          find={findMeal}
-        />
-        <Products
-        products={this.state.products} />
+      <div className="wrapper">
+        <h1 > Menu</h1>
+        <button className='button_menu' onClick={() => this.hideComponent("showHideFName")} > Show Menu</button>
+        {showHideFName && showHideLName && (
+          <div className="AppTables">
+            <Filter
+              sorting={this.sorting}
+              sorts={this.state.sort}
+              filteringName={this.filteringName}
+              cat={this.state.cat}
+              find={findMeal}
+            />
+            <Products
+              products={this.state.products} />
 
-      </div>
-      )}
+          </div>
+        )}
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ToDoForm from "./ToDoForm";
 import AddTodoOption from "./ToDolist";
 
-export default function SelectOptions({ListFromModal})  {
+export default function SelectOptions({ ListFromModal }) {
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
@@ -21,7 +21,6 @@ export default function SelectOptions({ListFromModal})  {
     setTodo(e.target.value);
   }
 
-
   function handleAddFormSubmit(e) {
     e.preventDefault();
 
@@ -37,12 +36,11 @@ export default function SelectOptions({ListFromModal})  {
             text: arrayOfStrings
           }
         ]);
-       
+
       }
       setTodo([]);
-      console.log( arrayOfStrings);
-    
-    } 
+      console.log(arrayOfStrings);
+    }
   }
 
   function handleDeleteClick(id) {
@@ -54,39 +52,34 @@ export default function SelectOptions({ListFromModal})  {
 
   function price() {
     var output = document.getElementById("total-price_button"),
-    lies = document.querySelectorAll(".total_price_li");
- 
- output.value = Array.prototype.reduce.call(
-    lies, function(p, t){
-       return p + (+t.dataset.n);
-     }, 0
- );
+      lies = document.querySelectorAll(".total_price_li");
 
-   }
+    output.value = Array.prototype.reduce.call(
+      lies, function (p, t) {
+        return p + (+t.dataset.n);
+      }, 0
+    );
+  }
   return (
     <div className="App">
-     <form onSubmit={ListFromModal}>
+      <form onSubmit={ListFromModal}>
         <ToDoForm
           todo={todo}
           onAddInputChange={handleAddInputChange}
           onAddFormSubmit={handleAddFormSubmit}
-       
         />
-      <ul className='todo_list' id='total_price_ul'>
-        {todos.map((todo) => (
-          <AddTodoOption
-          
-            todo={todo}
-            onDeleteClick={handleDeleteClick}
-          />
-        ))}
-       
-      </ul>
-      <div className="total-price">
-      <p className="total-price_click-text">(Click on the button to see the price) </p>
-      <output  onClick={price} id="total-price_button"> Total price </output>
-
-      </div>
+        <ul className='todo_list' id='total_price_ul'>
+          {todos.map((todo) => (
+            <AddTodoOption
+              todo={todo}
+              onDeleteClick={handleDeleteClick}
+            />
+          ))}
+        </ul>
+        <div className="total-price">
+          <p className="total-price_click-text">(Click on the button to see the price) </p>
+          <output onClick={price} id="total-price_button"> Total price </output>
+        </div>
       </form>
     </div>
   );

@@ -1,10 +1,8 @@
 import React from "react";
 
-
-export default function Filter({find, sorts, sorting, cat, filteringName }) {
+export default function Filter({ find, sorts, sorting, cat, filteringName }) {
   return (
     <div>
-      {/* filtering by name */}
       <div className='select_filter'>
         <select value={cat} onChange={filteringName}>
           <option value="all">All</option>
@@ -13,23 +11,20 @@ export default function Filter({find, sorts, sorting, cat, filteringName }) {
           <option value="fish">fish</option>
         </select>
       </div>
-
-      {/* sorting */}
       <div className='select_filter'>
         <select value={sorts} onChange={sorting}>
           <option value="all">All</option>
           <option value="low">Low</option>
           <option value="high">High</option>
         </select>
-      
       </div>
-      <input 
-      className='input_field'
-       onKeyUp ={find}
-       type="text" 
-       id='input_second'
-       placeholder="find meal"
-       />
+      <input
+        className='input_field'
+        onKeyUp={find}
+        type="text"
+        id='input_second'
+        placeholder="find meal"
+      />
     </div>
   );
 }

@@ -19,6 +19,7 @@ export default class AppTables extends Component {
     }
     this.hideComponent = this.hideComponent.bind(this);
   }
+  
   hideComponent(name) {
     switch (name) {
       case "showHideFName":
@@ -34,7 +35,6 @@ export default class AppTables extends Component {
 
   sorting = (e) => {
     const sorting = e.target.value;
-
     const sortRes = this.state.tables.setState(
       {
         sort: sorting,
@@ -67,19 +67,19 @@ export default class AppTables extends Component {
     return (
       <div className="wrapper">
         <h1>Tables</h1>
-      <button  className='button_menu' onClick={() => this.hideComponent("showHideLName")}><p> Show Tables</p></button>
-      {showHideLName && showHideFName && (
-      <div className="AppTables">
-        <FilterTables
-          sorting={this.sorting}
-          sorts={this.state.sort}
-          filteringName={this.filteringName}
-          cat={this.state.cat}
-        />
-        <Tables tables={this.state.tables} />
+        <button className='button_menu' onClick={() => this.hideComponent("showHideLName")}><p> Show Tables</p></button>
+        {showHideLName && showHideFName && (
+          <div className="AppTables">
+            <FilterTables
+              sorting={this.sorting}
+              sorts={this.state.sort}
+              filteringName={this.filteringName}
+              cat={this.state.cat}
+            />
+            <Tables tables={this.state.tables} />
+          </div>
+        )}
       </div>
-       )}
-       </div>
     );
   }
 }
