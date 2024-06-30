@@ -1,11 +1,6 @@
 trigger:
 - master
 
-resources:
-  containers:
-  - container: node
-    image: node:14
-
 pool:
   vmImage: 'ubuntu-latest'
 
