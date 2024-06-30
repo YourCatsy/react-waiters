@@ -7,7 +7,7 @@ pool:
 variables:
   imageName: 'react-waiters'
   buildId: $(Build.BuildId)
-  dockerRegistryServiceConnection: 'dockercontainerwaitersapp'
+  dockerRegistryServiceConnection: 'dockercontainerwaitersappsecond'
 
 steps:
 - task: Docker@2
