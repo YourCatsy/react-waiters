@@ -11,6 +11,8 @@ pool:
 
 variables:
   imageName: 'react-waiters'
+  buildId: $(Build.BuildId)
+  dockerRegistryServiceConnection: 'my-acr-connection'  # Убедитесь, что это имя совпадает
 
 steps:
 - task: Docker@2
@@ -19,7 +21,7 @@ steps:
     repository: $(imageName)
     dockerfile: '**/Dockerfile'
     tags: |
-      $(imageName):$(Build.BuildId)
+      $(imageName):$(buildId)
     containerRegistry: $(dockerRegistryServiceConnection)
     
 - task: Docker@2
@@ -27,5 +29,5 @@ steps:
     command: push
     repository: $(imageName)
     tags: |
-      $(imageName):$(Build.BuildId)
+      $(imageName):$(buildId)
     containerRegistry: $(dockerRegistryServiceConnection)
