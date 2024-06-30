@@ -12,7 +12,7 @@ pool:
 variables:
   imageName: 'react-waiters'
   buildId: $(Build.BuildId)
-  dockerRegistryServiceConnection: 'my-acr-connection'  # Убедитесь, что это имя совпадает
+  dockerRegistryServiceConnection: 'dockercontainerwaitersapp'
 
 steps:
 - task: Docker@2
