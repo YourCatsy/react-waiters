@@ -5,11 +5,23 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  dockerRegistryServiceConnection: 'dockercontainerwaitersappsecond'
+  imageName: 'react-waiters'
+  buildId: $(Build.BuildId)
 
 steps:
 - task: Docker@2
   inputs:
-    command: login
-    containerRegistry: $(dockerRegistryServiceConnection)
-
+    command: build
+    repository: $(imageName)
+    dockerfile: '**/Dockerfile'
+    tags: |
+      $(imageName):$(buildId)
+    containerRegistry: 'dockercontainerwaitersapp'
+    
+- task: Docker@2
+  inputs:
+    command: push
+    repository: $(imageName)
+    tags: |
+      $(imageName):$(buildId)
+    containerRegistry: 'dockercontainerwaitersapp'
