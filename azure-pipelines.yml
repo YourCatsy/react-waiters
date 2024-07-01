@@ -7,25 +7,26 @@ pool:
 variables:
   imageName: 'react-waiters'
   buildId: $(Build.BuildId)
-  fullImageName: 'dockercontainerwaitersapp.azurecr.io/$(imageName):$(buildId)'
+  registryName: 'dockercontainerwaitersapp.azurecr.io'
+  fullImageName: 'dockercontainerwaitersapp.azurecr.io/react-waiters:Build.BuildId'
 
 steps:
-- script: echo $(fullImageName)
+- script: echo 'dockercontainerwaitersapp.azurecr.io/react-waiters:Build.BuildId'
   displayName: 'Print Full Image Name'
 
 - task: Docker@2
   inputs:
     command: build
-    repository: $(imageName)
+    repository: 'react-waiters'
     dockerfile: '**/Dockerfile'
     tags: |
-      $(fullImageName)
+      'dockercontainerwaitersapp.azurecr.io/react-waiters:Build.BuildId'
     containerRegistry: 'dockercontainerwaitersapp'
     
 - task: Docker@2
   inputs:
     command: push
-    repository: $(imageName)
+    repository: 'react-waiters'
     tags: |
-      $(fullImageName)
+      'dockercontainerwaitersapp.azurecr.io/react-waiters:Build.BuildId'
     containerRegistry: 'dockercontainerwaitersapp'
