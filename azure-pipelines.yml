@@ -1,21 +1,14 @@
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  imageName: 'react-waiters'
-  buildId: $(Build.BuildId)
-
 steps:
+- script: echo $(fullImageName)
+  displayName: 'Print Full Image Name'
+
 - task: Docker@2
   inputs:
     command: build
     repository: $(imageName)
     dockerfile: '**/Dockerfile'
     tags: |
-      $(imageName):$(buildId)
+      $(fullImageName)
     containerRegistry: 'dockercontainerwaitersapp'
     
 - task: Docker@2
@@ -23,5 +16,5 @@ steps:
     command: push
     repository: $(imageName)
     tags: |
-      $(imageName):$(buildId)
+      $(fullImageName)
     containerRegistry: 'dockercontainerwaitersapp'
