@@ -1,3 +1,14 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  imageName: 'react-waiters'
+  buildId: $(Build.BuildId)
+  fullImageName: 'dockercontainerwaitersapp.azurecr.io/$(imageName):$(buildId)'
+
 steps:
 - script: echo $(fullImageName)
   displayName: 'Print Full Image Name'
