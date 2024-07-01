@@ -20,7 +20,7 @@ steps:
     repository: 'react-waiters'
     dockerfile: '**/Dockerfile'
     tags: |
-      'dockercontainerwaitersapp.azurecr.io/react-waiters:Build.BuildId'
+      'dockercontainerwaitersapp.azurecr.io/react-waiters:$(buildId)'
     containerRegistry: 'dockercontainerwaitersapp'
     
 - task: Docker@2
