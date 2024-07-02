@@ -16,6 +16,13 @@ steps:
 
 - task: Docker@2
   inputs:
+    command: login
+    containerRegistry: 'dockercontainerwaitersapp'
+    username: $(ACR_USERNAME)
+    password: $(ACR_PASSWORD)
+
+- task: Docker@2
+  inputs:
     command: build
     repository: '$(imageName)'
     dockerfile: '**/Dockerfile'
