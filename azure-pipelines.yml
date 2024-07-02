@@ -1,11 +1,11 @@
 trigger:
-- main
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  dockerRegistryServiceConnection: 'dockercontainerwaitersapp'
+  azureSubscription: 'AzureRMServiceConnection'
   imageRepository: 'dockercontainerwaitersapp.azurecr.io/Waiters-app'
   containerRegistry: 'dockercontainerwaitersapp.azurecr.io'
   dockerfilePath: 'Dockerfile'
@@ -14,7 +14,7 @@ variables:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $(dockerRegistryServiceConnection)
+    azureSubscription: $(azureSubscription)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
