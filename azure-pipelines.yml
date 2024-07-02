@@ -8,7 +8,7 @@ variables:
   imageName: 'react-waiters'
   buildId: $(Build.BuildId)
   registryName: 'dockercontainerwaitersapp.azurecr.io'
-  fullImageName: '$(registryName)/$(imageName):$(buildId)'
+  fullImageName: 'dockercontainerwaitersapp.azurecr.io/$(imageName):$(buildId)'
 
 steps:
 - script: echo $(fullImageName)
