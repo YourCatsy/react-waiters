@@ -1,31 +1,32 @@
-# Stage 1: Build stage
-FROM node:14 AS build
+FROM nginx:latest as build
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    npm \
+    # Add other necessary installations
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
+# Copy package.json and install dependencies
 COPY package*.json ./
-
-# Install npm dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Copy the rest of your application code
 COPY . .
 
-# Build the application (if needed)
+# Build the application
 RUN npm run build
 
-# Stage 2: Production stage
+# Production stage
 FROM nginx:alpine
 
 # Copy build artifacts from the build stage
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Copy custom nginx configuration if needed
-COPY nginx.conf /etc/nginx/nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 80
 EXPOSE 80
 
-# Start nginx server
+# Command to run nginx
 CMD ["nginx", "-g", "daemon off;"]
