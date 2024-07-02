@@ -1,32 +1,24 @@
 trigger:
-- master
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'dockercontainerwaitersapp'
-  buildId: $(Build.BuildId)
-  registryName: 'dockercontainerwaitersapp.azurecr.io'
-  fullImageName: '$(registryName)/$(imageName):$(buildId)'
+  dockerRegistryServiceConnection: 'dockercontainerwaitersapp'
+  imageRepository: 'dockercontainerwaitersapp.azurecr.io/Waiters-app'
+  containerRegistry: 'dockercontainerwaitersapp.azurecr.io'
+  dockerfilePath: 'Dockerfile'
+  tag: '$(Build.BuildId)'
 
 steps:
-- script: echo $(fullImageName)
-  displayName: 'Print Full Image Name'
-
-- task: Docker@2
+- task: AzureCLI@2
   inputs:
-    command: build
-    repository: '$(imageName)'
-    dockerfile: '**/Dockerfile'
-    tags: |
-      $(fullImageName)
-    containerRegistry: 'dockercontainerwaitersapp'
-
-- task: Docker@2
-  inputs:
-    command: push
-    repository: '$(imageName)'
-    tags: |
-      $(fullImageName)
-    containerRegistry: 'dockercontainerwaitersapp'
+    azureSubscription: $(dockerRegistryServiceConnection)
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az acr login --name dockercontainerwaitersapp
+      docker build -t $(imageRepository):$(tag) -f $(dockerfilePath) .
+      docker push $(imageRepository):$(tag)
+  displayName: 'Build and push Docker image'
