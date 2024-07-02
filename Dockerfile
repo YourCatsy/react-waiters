@@ -1,15 +1,9 @@
-FROM node:14
+server {
+    listen 80;
+    server_name localhost;
 
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-EXPOSE 80
-
-ENV PORT 80
-
-CMD ["npm", "start"]
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+}
