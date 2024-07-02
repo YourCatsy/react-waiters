@@ -28,16 +28,12 @@ steps:
 - task: Docker@2
   inputs:
     command: build
-    repository: '$(imageName)'
-    dockerfile: 'Dockerfile'  # Указываем путь к Dockerfile
-    tags: |
-      $(fullImageName)
+    repository: '$(fullImageName)'  # Используем полное имя образа
+    dockerfile: 'Dockerfile'
     containerRegistry: 'dockercontainerwaitersapp'
 
 - task: Docker@2
   inputs:
     command: push
-    repository: '$(imageName)'
-    tags: |
-      $(fullImageName)
+    repository: '$(fullImageName)'  # Используем полное имя образа
     containerRegistry: 'dockercontainerwaitersapp'
