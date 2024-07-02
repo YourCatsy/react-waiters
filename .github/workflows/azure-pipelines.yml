@@ -19,8 +19,8 @@ jobs:
 
     - name: Build and Push Docker image
       run: |
-        az acr login --name <YourACRName>
-        docker build -t <YourACRName>.azurecr.io/<YourAppName>:${{ github.sha }} .
-        docker push <YourACRName>.azurecr.io/<YourAppName>:${{ github.sha }}
+        az acr login --name dockercontainerwaitersapp
+        docker build -t dockercontainerwaitersapp.azurecr.io/Waiters-app:${{ github.sha }} .
+        docker push dockercontainerwaitersapp.azurecr.io/Waiters-app:${{ github.sha }}
 
           tags: ${{ secrets.DOCKER_USERNAME }}/react-waiters:latest
