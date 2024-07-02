@@ -1,0 +1,26 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Build and Push Docker image
+      run: |
+        az acr login --name <YourACRName>
+        docker build -t <YourACRName>.azurecr.io/<YourAppName>:${{ github.sha }} .
+        docker push <YourACRName>.azurecr.io/<YourAppName>:${{ github.sha }}
+
+          tags: ${{ secrets.DOCKER_USERNAME }}/react-waiters:latest
