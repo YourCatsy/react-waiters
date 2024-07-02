@@ -7,7 +7,7 @@ pool:
 variables:
   imageName: 'react-waiters'
   buildId: $(Build.BuildId)
-  registryName: 'dockercontainerwaitersapp.azurecr.io'
+  registryName: 'dockercontainerwaitersapp'
   fullImageName: '$(registryName)/$(imageName):$(buildId)'
 
 steps:
