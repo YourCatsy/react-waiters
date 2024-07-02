@@ -1,13 +1,28 @@
-FROM node:14
+FROM node:14 AS build
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["npm", "start"]
+
+FROM node:14
+
+WORKDIR /app
+
+COPY --from=build /app/build /app/build
+
+COPY --from=build /app/package.json /app/package.json
+
+COPY --from=build /app/package-lock.json /app/package-lock.json
+
+COPY server.js /app/server.js
+
+RUN npm install --only=prod
+
+CMD ["node", "server.js"]
