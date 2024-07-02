@@ -8,32 +8,25 @@ variables:
   imageName: 'react-waiters'
   buildId: $(Build.BuildId)
   registryName: 'dockercontainerwaitersapp.azurecr.io'
-  fullImageName: '$(registryName)/$(imageName):$(buildId)'
+  fullImageName: 'dockercontainerwaitersapp.azurecr.io/react-waiters:$(Build.BuildId)'
 
 steps:
-- script: |
-    echo "Image Name: $(imageName)"
-    echo "Build ID: $(buildId)"
-    echo "Registry Name: $(registryName)"
-    echo "Full Image Name: $(fullImageName)"
-  displayName: 'Print Variables'
-
-- task: Docker@2
-  inputs:
-    command: login
-    containerRegistry: 'dockercontainerwaitersapp'
-    username: $(ACR_USERNAME)
-    password: $(ACR_PASSWORD)
+- script: echo '$(fullImageName)'
+  displayName: 'Print Full Image Name'
 
 - task: Docker@2
   inputs:
     command: build
-    repository: '$(fullImageName)'  # Используем полное имя образа
-    dockerfile: 'Dockerfile'
+    repository: 'react-waiters'
+    dockerfile: '**/Dockerfile'
+    tags: |
+      '$(fullImageName)'
     containerRegistry: 'dockercontainerwaitersapp'
-
+    
 - task: Docker@2
   inputs:
     command: push
-    repository: '$(fullImageName)'  # Используем полное имя образа
+    repository: 'react-waiters'
+    tags: |
+      '$(fullImageName)'
     containerRegistry: 'dockercontainerwaitersapp'
