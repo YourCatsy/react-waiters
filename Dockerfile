@@ -1,9 +1,8 @@
 FROM nginx:latest as build
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    npm \
-    # Add other necessary installations
+# Install npm and other dependencies
+RUN apt-get update && apt-get install -y npm \
+    # Add other necessary installations here
 
 WORKDIR /app
 
