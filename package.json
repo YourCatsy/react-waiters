@@ -6,8 +6,7 @@
   "description": "Minimal react + webpack + babel setup",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack serve --open",
-    "build": "webpack --mode production"
+    "start": "webpack serve --open"
   },
   "dependencies": {
     "bootstrap": "^5.2.0",
