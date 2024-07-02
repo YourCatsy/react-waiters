@@ -6,7 +6,7 @@ pool:
 
 variables:
   azureSubscription: 'AzureRMServiceConnection'
-  imageRepository: 'dockercontainerwaitersapp.azurecr.io/Waiters-app'
+  imageRepository: 'dockercontainerwaitersapp.azurecr.io/dockercontainerwaitersapp'
   containerRegistry: 'dockercontainerwaitersapp.azurecr.io'
   dockerfilePath: 'Dockerfile'
   tag: '$(Build.BuildId)'
