@@ -21,7 +21,7 @@ steps:
     dockerfile: '**/Dockerfile'
     tags: |
       $(fullImageName)
-    containerRegistry: 'dockercontainerwaitersappsecond'
+    containerRegistry: 'dockercontainerwaitersapp'
 
 - task: Docker@2
   inputs:
@@ -29,4 +29,4 @@ steps:
     repository: '$(imageName)'
     tags: |
       $(fullImageName)
-    containerRegistry: 'dockercontainerwaitersappsecond'
+    containerRegistry: 'dockercontainerwaitersapp'
