@@ -5,9 +5,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'react-waiters'
+  imageName: 'dockercontainerwaitersapp'
   buildId: $(Build.BuildId)
-  registryName: 'dockercontainerwaitersapp'
+  registryName: 'dockercontainerwaitersapp.azurecr.io'
   fullImageName: '$(registryName)/$(imageName):$(buildId)'
 
 steps:
