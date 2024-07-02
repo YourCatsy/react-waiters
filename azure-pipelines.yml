@@ -25,7 +25,7 @@ steps:
   inputs:
     command: build
     repository: '$(imageName)'
-    dockerfile: '/Dockerfile'
+    dockerfile: 'Dockerfile'
     tags: |
       $(fullImageName)
     containerRegistry: 'dockercontainerwaitersapp'
