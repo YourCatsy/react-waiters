@@ -13,4 +13,7 @@ COPY --from=build /app/dist /app/dist
 COPY --from=build /app/package.json /app/package.json
 COPY server.js /app/server.js
 RUN npm install --only=prod
+
+EXPOSE 80
+
 CMD ["node", "server.js"]
