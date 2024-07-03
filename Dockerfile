@@ -9,13 +9,11 @@ RUN npm run build
 FROM node:14
 WORKDIR /app
 COPY --from=build /app/dist /app/dist
-COPY --from=build /app/package.json /app/package.json
+COPY --from=build /app/package.json /app/package-lock.json /app/
 COPY server.js /app/server.js
 
-# Обновляем npm до последней версии
-RUN npm install -g npm@latest
-
-# Устанавливаем только продакшн зависимости
+# Очистка кеша npm и установка зависимостей
+RUN npm cache clean --force
 RUN npm install --only=prod
 
 EXPOSE 80
